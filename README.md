@@ -25,9 +25,11 @@ com.github.allenkim80" % "gatling-sentry-extension_2.11" % "0.1.2
 // You need to make gatling simulation project.
 
 class SetnryTestSimulation extends Simulation {
-startSentry()
 
-val scn = scenario("Sentry")
+  // Start extension
+  startSentry()
+
+  val scn = scenario("Sentry")
     .exec(
       http("/endpoint")
         .get("/endpoint")
@@ -60,10 +62,13 @@ val scn = scenario("Sentry")
     }
     response
   }
-  
-setUp(scn.inject(rampUsers(2) over (1 minute))).protocols(createHttpProtocol())
 
-stopSentry()
+  // start gatling simulation
+  setUp(scn.inject(rampUsers(2) over (1 minute))).protocols(createHttpProtocol())
+
+  // stop extension
+  stopSentry()
+
 }
 ```
 
