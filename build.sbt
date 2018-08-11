@@ -51,9 +51,12 @@ publishArtifact in packageBin := true
 
 publishMavenStyle := true
 
-publishTo := Some(
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
   if (isSnapshot.value)
-    Opts.resolver.sonatypeSnapshots
+    Some("snapshots" at nexus + "content/repositories/snapshots")
   else
-    Opts.resolver.sonatypeStaging
-)
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+
+pomIncludeRepository := { _ => false }
