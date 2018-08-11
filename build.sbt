@@ -10,6 +10,14 @@ lazy val root = (project in file("."))
     name := "gatling-sentry-extension",
     version := (version in ThisBuild).value,
     organization := "com.ea.spearhead",
+    homepage := Some(url("https://github.com/allenkim80/gatling-sentry-extension")),
+    scmInfo := Some(ScmInfo(url("https://github.com/allenkim80/gatling-sentry-extension"),
+                                "git@github.com:allenkim80/gatling-sentry-extension.git")),
+    developers := List(Developer("allenkim80",
+      "Allen Kim",
+      "corono1004@gmail.com",
+      url("https://github.com/allenkim80"))),
+    licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
     scalaVersion := scala_version,
     libraryDependencies ++= {
       Seq(
@@ -43,32 +51,9 @@ publishArtifact in packageBin := true
 
 publishMavenStyle := true
 
-publishTo := {
-  val nexus = "http://apseo-nexus"
+publishTo := Some(
   if (isSnapshot.value)
-    Some("snapshots" at nexus + "/repository/maven-snapshots")
+    Opts.resolver.sonatypeSnapshots
   else
-    Some("releases"  at nexus + "/repository/maven-releases")
-}
-
-credentials += Credentials( "Sonatype Nexus Repository Manager", "apseo-nexus", "eass-build", "Welcome2ea!!")
-
-pomIncludeRepository := { _ => false }
-
-pomExtra := <url>http://git.sphd.io/qe/gatling-sentry-extension</url>
-  <licenses>
-    <license>
-      <name>The MIT License (MIT)</name>
-      <url>https://opensource.org/licenses/MIT</url>
-    </license>
-  </licenses>
-  <scm>
-    <url>http://git.sphd.io/qe/gatling-sentry-extension.git</url>
-    <connection>scm:git:http://git.sphd.io/qe/gatling-sentry-extension.git</connection>
-  </scm>
-  <developers>
-    <developer>
-      <id>seunkim</id>
-      <name>Allen Kim</name>
-    </developer>
-  </developers>
+    Opts.resolver.sonatypeStaging
+)
