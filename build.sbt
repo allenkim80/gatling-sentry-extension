@@ -9,7 +9,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "gatling-sentry-extension",
     version := (version in ThisBuild).value,
-    organization := "com.ea.spearhead",
+    organization := "com.github.allenkim80",
     homepage := Some(url("https://github.com/allenkim80/gatling-sentry-extension")),
     scmInfo := Some(ScmInfo(url("https://github.com/allenkim80/gatling-sentry-extension"),
                                 "git@github.com:allenkim80/gatling-sentry-extension.git")),
