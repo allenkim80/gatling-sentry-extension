@@ -1,7 +1,7 @@
 # gatling-sentry-extension
 
 `gatling-sentry-extension` is the one that can easily send gatling logs to sentry. Gatling is the powerful tool to check application's performance, but it is hard to check what kind of errors occur during the test. So, this extension help you check error logs with Sentry.(https://sentry.io/welcome/)
-This extension is made based on Akka framework, when the start gatling test, it should make Actor system for 'gatling-sentry-extension'. I will explain more detaily below section.
+This extension is made based on Akka framework, when the start gatling test, it should make Actor system for `gatling-sentry-extension`. I will explain more detaily below section.
 
 This extension can send those logs to Sentry.
   - Gatling http response
@@ -15,7 +15,7 @@ If you want to use, need to add the dependency in your `build.sbt`
 ```
 "com.github.allenkim80" % "gatling-sentry-extension_2.11" % "0.1.16-SNAPSHOT"
 ```
-`Please wait to use this extension, as soon as possible I will publish this.`
+`Now you can use snapshot version, as soon as possible I will publish release version.`
 
 ### Usage
 
