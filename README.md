@@ -13,9 +13,8 @@ This extension can send those logs to Sentry.
 If you want to use, need to add the dependency in your `build.sbt`
 
 ```
-"com.github.allenkim80" % "gatling-sentry-extension_2.11" % "0.1.16-SNAPSHOT"
+"com.github.allenkim80" % "gatling-sentry-extension_2.11" % "0.1.17"
 ```
-`Now you can use snapshot version, as soon as possible I will publish release version.`
 
 ### Usage
 
